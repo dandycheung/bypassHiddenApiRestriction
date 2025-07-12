@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 4.0.3)
 
 project("test-lib")
 
@@ -11,7 +11,7 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} BUILD_TYPE_DIRNAME)
 set(LIB_BASE ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bypassRestriction)
 add_library(bypassRestriction::bypassRestriction SHARED IMPORTED)
 set_target_properties(bypassRestriction::bypassRestriction PROPERTIES
-        IMPORTED_LOCATION ${LIB_BASE}/build/intermediates/stripped_native_libs/${BUILD_TYPE_DIRNAME}/out/lib/${ANDROID_ABI}/libbypassRestriction.so
+        IMPORTED_LOCATION ${LIB_BASE}/build/intermediates/merged_native_libs/${BUILD_TYPE_DIRNAME}/mergeDebugNativeLibs/out/lib/${ANDROID_ABI}/libbypassRestriction.so
         INTERFACE_INCLUDE_DIRECTORIES ${LIB_BASE}/src/main/cpp/include)
 
 # import lib from maven
